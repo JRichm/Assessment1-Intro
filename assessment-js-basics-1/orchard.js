@@ -52,16 +52,23 @@ const pinkPrice = .55
 // CODE HERE
 console.log("\nPROBLEM ONE");
 
-let totalAcres = 0;
+let totalAcresPicked = 0;
+
+// create 2d array for all orchards
 let allAcres = [fujiAcres, galaAcres, pinkAcres];
 
+// loop through orchards
 for (let i = 0; i < allAcres.length; i++) {
+
+    // loop through days
     for (let j = 0; j < allAcres[i].length; j++) {
-        totalAcres += allAcres[i][j];
+
+        // sums acres picked from each index of array
+        totalAcresPicked += allAcres[i][j];
     }
 }
 
-console.log("Total Acres: " + totalAcres);
+console.log("Total Acres: " + totalAcresPicked);
 
 // PROBLEM 2
 
@@ -78,7 +85,8 @@ console.log("Total Acres: " + totalAcres);
 // CODE HERE
 console.log("\nPROBLEM TWO");
 
-averageDailyAcres = totalAcres / 7;
+// avg daily picked acres
+averageDailyAcres = totalAcresPicked / 7;
 console.log(averageDailyAcres);
 
 
@@ -117,9 +125,16 @@ let days = 0
 // CODE HERE
 console.log("\nPROBLEM THREE");
 
+// while loop, 1 iteration = 1 day
 while (acresLeft > 0) {
+
+    // if acres left to pick is less than average, only subtract what's left
     if (acresLeft - averageDailyAcres < 0) acresLeft = 0;
+
+    // otherwise subtract dailyAvg
     else acresLeft -= averageDailyAcres;
+
+    // incr. day
     days++
 }
 
@@ -153,14 +168,28 @@ console.log("It is day " + days + " and there are no more apples to pick!")
 // CODE HERE
 console.log("\nPROBLEM FOUR");
 
+// create 2d array for probelm 5
 weeklyTonnageAll = [];
+
+// loop through orchards
 for (let x = 0; x < allAcres.length; x++) {
+
+    // create array for tons picked per week
     weeklyTonnage = [];
+
+    // loop through each day
     for (let y = 0; y < allAcres[x].length; y++) {
+
+        // each days pick per orchard
         dailyTonnage = allAcres[x][y] * 6.5;
+
+        // add days tonnage to weekly tonnage array
         weeklyTonnage.push(dailyTonnage);
     }
+
+    // add week tonnage array to all orchards array
     weeklyTonnageAll.push(weeklyTonnage);
+
     console.log(weeklyTonnage);
 }
 
@@ -187,12 +216,18 @@ let fujiPounds;
 let galaPounds;
 let pinkPounds;
 
+// loop through orchard tonnage counts
 for (let i = 0; i < weeklyTonnageAll.length; i++) {
     totalPounds = 0;
+
+    // loop through orchards daily counts
     for (let j = 0; j < weeklyTonnageAll[i].length; j++) {
+
+        // sum daily totals
         totalPounds += weeklyTonnageAll[i][j] * 2000;
     }
 
+    // assigning variables per orchard
     switch (i){
         case 0:
             fujiPounds = totalPounds;
@@ -229,6 +264,7 @@ for (let i = 0; i < weeklyTonnageAll.length; i++) {
 // CODE HERE
 console.log("\nPROBLEM SIX");
 
+// calculate profit per orchard
 let fujiProfit = fujiPounds * fujiPrice;
 let galaProfit = galaPounds * galaPrice
 let pinkProfit = pinkPounds * pinkPrice;
@@ -252,5 +288,6 @@ console.log("Pink Profit: $" + pinkProfit + ".00");
 // CODE HERE
 console.log("\nPROBLEM SEVEN");
 
+// calculate total profit
 totalProfit = fujiProfit + galaProfit + pinkProfit;
 console.log("Total Profit: $" + totalProfit + ".00");

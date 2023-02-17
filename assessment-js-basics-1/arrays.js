@@ -6,6 +6,7 @@ const faveColors = ['red', 'green', 'black']
 //CODE HERE
 console.log("\nPROBLEM ONE");
 
+// copies faveColors array and to variable colorCopy
 let colorCopy = faveColors.slice();
 console.log("Color Copy: " + colorCopy);
 
@@ -15,6 +16,7 @@ console.log("Color Copy: " + colorCopy);
 //CODE HERE
 console.log("\nPROBLEM TWO");
 
+// add "yellow" to colorCopy array
 colorCopy.push("yellow")
 console.log("Color Copy: " + colorCopy);
 //////////////////PROBLEM 3////////////////////
@@ -28,6 +30,7 @@ const numbers = [1, 2, 3, 4, 5]
 //CODE HERE
 console.log("\nPROBLEM THREE");
 
+// copies numbers between index (including) 1 and (not including) 4 
 let middle = numbers.slice(1, 4);
 console.log(middle);
 
@@ -46,10 +49,16 @@ const bigOrSmallArray = [1, 99, 42, 69, 102, -10, 159, 352]
 // CODE HERE
 console.log("\nPROBLEM FOUR");
 
+// create empty array for answers
 let answers = [];
 
+// checks every variable in bigOrSmallArray
 for (let i = 0; i < bigOrSmallArray.length; i++) {
+
+  // if bigger than 100, set answer to "big"
   if (bigOrSmallArray[i] > 100) answers.push("big");
+
+  // otherwise set anser to "small"
   else answers.push("small");
 }
 
